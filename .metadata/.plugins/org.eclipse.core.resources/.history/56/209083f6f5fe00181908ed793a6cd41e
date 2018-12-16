@@ -1,0 +1,5 @@
+package com.cl.fallback;
+
+public class OrderFallBack implements MemberFeignService {
+
+}

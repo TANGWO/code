@@ -1,0 +1,25 @@
+package com.cl.main;
+
+import java.util.Scanner;
+
+public class AIMain {
+	
+	
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String str;
+		while(true) {
+			str=scanner.next();
+			str=str.replace( "Âğ",  "");
+			str=str.replace( "Äã",  "ÎÒ");
+			//str=str.replace( "ÎÒ",  "Äã");
+			str=str.replace( "?", "!");
+			str=str.replace( "£¿", "!");
+			str=str.replace( "? ", "!");
+			str=str.replace( " ?", "!");
+			System.out.println(str);
+		}
+	}
+
+}

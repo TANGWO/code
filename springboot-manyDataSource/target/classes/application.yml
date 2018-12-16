@@ -1,0 +1,22 @@
+##服务器配置
+server:
+  port: 8088
+  http2:
+    enabled: true
+
+##数据源配置  
+spring:
+    datasource:
+      names: source2,source1
+      source2:
+         jdbc-url: jdbc:oracle:thin:@localhost:1521:orcl
+         username: zsdx
+         password: zsdx
+         driver-class-name: oracle.jdbc.driver.OracleDriver
+     
+      source1: 
+         jdbc-url: jdbc:oracle:thin:@localhost:1521:orcl
+         username: sx
+         password: sx
+         driver-class-name: oracle.jdbc.driver.OracleDriver
+         

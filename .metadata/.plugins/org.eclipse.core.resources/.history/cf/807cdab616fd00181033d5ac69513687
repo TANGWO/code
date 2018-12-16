@@ -1,0 +1,14 @@
+package com.cl.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class MumberService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+	
+	
+}

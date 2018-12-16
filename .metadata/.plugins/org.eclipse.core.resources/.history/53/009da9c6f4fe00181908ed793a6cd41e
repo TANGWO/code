@@ -1,0 +1,16 @@
+package com.cl.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class FeignOrderService {
+	
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	public List<String> getUserToMember(){
+		
+		re
+	}
+
+}

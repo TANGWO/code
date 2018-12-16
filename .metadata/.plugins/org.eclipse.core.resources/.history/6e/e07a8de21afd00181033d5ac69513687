@@ -1,0 +1,18 @@
+package com.cl.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class OrderController {
+	
+	private MumberService mumberService;
+	
+	
+	public List<String> getAllUserOrder(){
+		
+		
+		return null;
+	}
+}

@@ -1,0 +1,76 @@
+package com.cl.hystrix;
+
+import org.json.JSONObject;
+
+import com.cl.service.MemberFeignService;
+import com.netflix.hystrix.HystrixCommand;
+import com.netflix.hystrix.HystrixCommandGroupKey;
+import com.netflix.hystrix.HystrixCommandKey;
+import com.netflix.hystrix.HystrixCommandProperties;
+import com.netflix.hystrix.HystrixThreadPoolKey;
+import com.netflix.hystrix.HystrixThreadPoolProperties;
+
+public class OrderHystrixCommand  extends HystrixCommand<JSONObject>{
+
+	//JSONObject表示服务返回类型
+	
+	public OrderHystrixCommand(MemberFeignService memberFeignService) {
+		super(setter());
+		
+	}
+
+	public static  Setter setter() {
+		//服务分组
+		HystrixCommandGroupKey groupKey = HystrixCommandGroupKey.Factory.asKey("orders");
+		//服务标识
+		HystrixCommandKey commandkey = HystrixCommandKey.Factory.asKey("order");
+		//线程池名称
+		HystrixThreadPoolKey poolKey = HystrixThreadPoolKey.Factory.asKey("order-pool");
+		//线程池配置 
+		com.netflix.hystrix.HystrixThreadPoolProperties.Setter threadPoolProperties = HystrixThreadPoolProperties.Setter()
+			 // 线程池大小为10，
+			.withCoreSize(10)
+			//线程存活时间15秒，
+			.withKeepAliveTimeMinutes(15)
+			//队列等待阈值100，//超过100执行拒绝策略
+			.withQueueSizeRejectionThreshold(100);
+		
+		com.netflix.hystrix.HystrixCommandProperties.Setter commandProperties = HystrixCommandProperties.Setter()
+		//采用线程池方式隔离
+		.withExecutionIsolationStrategy(HystrixCommandProperties.ExecutionIsolationStrategy.THREAD)
+		//禁止超时
+		.withExecutionTimeoutEnabled(false);	
+		
+		return HystrixCommand.Setter
+				.withGroupKey(groupKey)
+				.andCommandKey(commandkey)
+				.andThreadPoolKey(poolKey)
+				.andThreadPoolPropertiesDefaults(threadPoolProperties)
+				.andCommandPropertiesDefaults(commandProperties);
+	}
+
+	
+	/**
+	  * 服务降级
+	 */
+	@Override
+	protected JSONObject run() throws Exception {
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("code", "500");
+		jsonObject.put("msg", "服务发生异常，服务熔断执行。。。。。");
+		return jsonObject;
+	}
+	
+    /**
+          * 服务降级执行方法
+     */
+	@Override
+	protected JSONObject getFallback() {
+		JSONObject member = new JSONObject();
+		System.out.println("feign 工程调用member 工程");
+		return memberFeignService.getUserToMember();
+	}
+
+	
+	
+}

@@ -1,0 +1,14 @@
+package com.cl.fallback;
+
+import java.util.List;
+
+import com.cl.service.MemberFeignService;
+
+public class OrderFallBack implements MemberFeignService {
+
+	@Override
+	public List<String> getUserToMember() {
+		return null;
+	}
+
+}

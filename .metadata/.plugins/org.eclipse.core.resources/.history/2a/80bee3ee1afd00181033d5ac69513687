@@ -1,0 +1,23 @@
+package com.cl.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.cl.service.MumberService;
+
+@Controller
+public class OrderController {
+	
+	
+	@Autowired
+	private MumberService mumberService;
+	
+	
+	public List<String> getAllUserOrder(){
+		
+		
+		return null;
+	}
+}

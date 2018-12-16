@@ -1,0 +1,16 @@
+package com.cl;
+
+@SpringBootApplication
+@EnableEurekaClient
+public class MumberApp01 {
+
+
+	
+	public class EurekaMumberApp {
+		
+		public static void main(String[] args) {
+			SpringApplication.run(EurekaMumberApp.class, args);
+		}
+	}
+
+}

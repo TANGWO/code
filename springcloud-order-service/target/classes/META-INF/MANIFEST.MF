@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: springcloud-order-service
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: chenl
+Implementation-Vendor-Id: com.cl
+Build-Jdk: 1.8.0_192
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/springcloud-order-service
+Created-By: Maven Integration for Eclipse
+

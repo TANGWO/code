@@ -1,0 +1,14 @@
+package com.cl.service;
+
+
+
+public class FeignOrderService {
+	
+	private RestTemplate RestTemplate;
+	
+	public List<String> getUserToMember(){
+		
+		re
+	}
+
+}

@@ -1,0 +1,18 @@
+package com.cl.hystrix;
+
+import org.json.JSONObject;
+
+import com.netflix.hystrix.HystrixCommand;
+
+public class OrderHystrixCommand  extends HystrixCommand<JSONObject>{
+
+	public OrderHystrixCommand(Setter setter) {
+		super(setter);
+		
+	}
+
+	
+
+	
+	
+}

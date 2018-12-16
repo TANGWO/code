@@ -1,0 +1,8 @@
+<factorypath>
+    <factorypathentry kind="EXTJAR" id="C:\Users\mi\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="C:\Users\mi\.m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="C:\Users\mi\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.11.0\log4j-slf4j-impl-2.11.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="C:\Users\mi\.m2\repository\org\apache\logging\log4j\log4j-api\2.11.0\log4j-api-2.11.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="C:\Users\mi\.m2\repository\org\apache\logging\log4j\log4j-core\2.11.0\log4j-core-2.11.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="C:\Users\mi\.m2\repository\org\smartboot\ioc\smart-ioc\1.0.0\smart-ioc-1.0.0.jar" enabled="true" runInBatchMode="false"/>
+</factorypath>

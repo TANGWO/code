@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.epxing.mapper.IndexMapper">
+
+	<!--                               
+		  id;    //流水号         
+		  title;   //标题         
+		  content;   //内容         
+		  photo;  // 网站图片      
+		  releaseDate;//发布日期      
+		  readingQuantity;//阅读数
+		  ownModule; 
+		  
+		  
+		  
+		   private   String   ID;
+  private   String   FILE_NAME;
+  private   String   FILE_TYPE;
+  private   Integer  FILE_SIZE;
+  private   String   ENTITY_ID;
+  private   BLOB     FILE_DATA;
+  private   String   USER_ID;
+  private   String   FILE_CODE_;
+  private   String   FILE_PATH_;
+  private   Integer  OLD_ID_;
+                               -->
+		
+	<!-- 分页查询   符号转换
+		&lt;   |  <
+		&lt;=  |  <=
+		&gt;   |  >
+		&gt;=  |  >=
+		&amp;  |  &
+		&apos; | '
+		&quot; | "    
+		
+		
+		  ID              INTEGER,
+		  TITLE           VARCHAR2(255),
+		  CONTENT         CLOB,
+		  PHOTO           VARCHAR2(255),
+		  RELEASEDATE     DATE,
+		  READINGQUANTITY INTEGER,
+		  OWNMODULE       VARCHAR2(255)
+		
+		 -->
+		
+	 <resultMap type="com.epxing.entity.WebsiteInformationContent" id="smap">
+        	<id  column="WICID" property="wicid"/>
+        	<result column="TITLE" property="title"/>
+        	<result column="CONTENT" property="content" jdbcType="CLOB" javaType="java.lang.String" typeHandler="org.apache.ibatis.type.ClobTypeHandler"/>
+        	<result column="RELEASEDATE" property="releaseDate"/>
+        	<result column="READINGQUANTITY" property="readingQuantity"/>
+        	<association property="photo" column="PHOTO" javaType="com.epxing.entity.FM_BLOB"  >
+	        	<id  column="ID" property="ID"/>
+	        	<result column="FILE_NAME" property="FILE_NAME"/>
+	        	<result column="FILE_TYPE" property="FILE_TYPE"/>
+	        	<result column="FILE_SIZE" property="FILE_SIZE"/>
+	        	<result column="ENTITY_ID" property="ENTITY_ID"/>
+	        	<result column="FILE_DATA" property="FILE_DATA" jdbcType="CLOB" javaType="java.lang.String" typeHandler="org.apache.ibatis.type.ClobTypeHandler"/>
+	        	<result column="USER_ID" property="USER_ID"/>
+	        	<result column="FILE_CODE_" property="FILE_CODE_"/>
+	        	<result column="FILE_PATH_" property="FILE_PATH_"/>
+	        	<result column="OLD_ID_" property="OLD_ID_"/>
+        	</association>
+        	<association property="ownModule" column="OWNMODULE" javaType="com.epxing.entity.ColumnInformation">
+					<id  column="CODE" property="code"/>
+		        	<result column="NAME" property="name"/>
+		        	<association column="PARENTCODE" property="parentCode"  javaType="com.epxing.entity.ColumnInformation">
+		        		<id  column="CODE" property="code"/>
+		        		<result column="NAME" property="name"/>
+		        	</association>
+        	</association>
+        </resultMap>	
+        
+		<select id="findNoticeByCode" resultMap="smap">
+			select s1.*,f.* from(select rownum r1, w.*  from WebsiteInformationContent w  WHERE  1=1
+			<if test="ownModule != null and ownModule != '' "> 
+				and ownModule=#{ownModule} 
+			</if>
+			 and rownum &lt;=  #{p.last}) s1 left join FM_BLOB f on f.ID = s1.photo
+             where r1 &gt; #{p.first} 
+		</select>
+  </mapper>

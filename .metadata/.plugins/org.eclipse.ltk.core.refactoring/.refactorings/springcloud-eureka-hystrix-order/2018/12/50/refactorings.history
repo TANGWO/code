@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;FeignController.java&apos; to &apos;springcloud-eureka-order-feign-service/src/main/java/com.cl.controller&apos;&#x0D;&#x0A;- Original project: &apos;springcloud-eureka-hystrix-order&apos;&#x0D;&#x0A;- Destination element: &apos;springcloud-eureka-order-feign-service/src/main/java/com.cl.controller&apos;&#x0D;&#x0A;- Original element: &apos;com.cl.controller.FeignController.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=springcloud-eureka-order-feign-service/src\/main\/java&lt;com.cl.controller" element1="/src\/main\/java&lt;com.cl.controller{FeignController.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1544779654108" units="1" version="1.0"/>
+</session>

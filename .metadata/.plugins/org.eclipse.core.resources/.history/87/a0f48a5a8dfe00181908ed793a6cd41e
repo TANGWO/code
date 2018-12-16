@@ -1,0 +1,8 @@
+
+
+##springcloud client service configs  配置分布式配置客户端
+spring.application.name=config-client
+spring.cloud.config.label=master
+spring.cloud.config.profile=dev
+spring.cloud.config.uri= http://localhost:8889/
+server.port=8881

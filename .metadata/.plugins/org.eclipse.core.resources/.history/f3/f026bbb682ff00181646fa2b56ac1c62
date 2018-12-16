@@ -1,0 +1,12 @@
+package com.cl.service;
+
+import org.json.JSONObject;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public interface MemberFeignService {
+
+	@RequestMapping("/getUser")
+	public JSONObject getUserMapToMember();
+
+	
+}

@@ -1,0 +1,38 @@
+##服务器配置
+server:
+  port: 8088
+  http2:
+    enabled: true
+
+##数据源配置  
+spring:
+    profiles:
+      active: prod
+      
+    datasource: 
+      names: source2,source1
+      source2:
+         jdbc-url: jdbc:oracle:thin:@localhost:1521:orcl
+         username: zsdx
+         password: zsdx
+         driver-class-name: oracle.jdbc.driver.OracleDriver
+     
+      source1: 
+         jdbc-url: jdbc:oracle:thin:@localhost:1521:orcl
+         username: sx
+         password: sx
+         driver-class-name: oracle.jdbc.driver.OracleDriver
+         
+##启用所有的监控中心，默认情况下是关闭的
+management: 
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+##自定义信息
+info: 
+   name: 陈领
+   age: 25
+
+         

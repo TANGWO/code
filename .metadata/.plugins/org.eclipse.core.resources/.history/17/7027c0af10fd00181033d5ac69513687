@@ -1,0 +1,17 @@
+package com.cl.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MumberController {
+	
+	
+	public List<String>  getUserList(){
+		
+		
+		
+		return null;
+	}
+}

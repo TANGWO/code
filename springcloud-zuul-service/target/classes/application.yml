@@ -1,0 +1,19 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+      
+#声明zuul配置
+server:
+  port: 8769
+spring:
+  application:
+    name: service-zuul
+zuul:
+  routes:
+    api-a:
+      path: /api-member/**
+      service-id: service-member
+    api-b:
+      path: /api-order/**
+      service-id: service-order

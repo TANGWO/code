@@ -1,0 +1,66 @@
+package com.cl.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSONObject;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@Slf4j
+public class MumberController {
+	
+	
+	@Value("${server.port}")
+	private String servicePort;
+	
+	private int count=0;
+	
+	@RequestMapping("/getUserList")
+	@ResponseBody
+	public List<String>  getUserList(){
+		count++;
+		log.info(count+"");
+		try {
+			Thread.sleep(3000);
+			Thread.currentThread().getName();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		ArrayList<String> list = new ArrayList<>();
+		list.add("chenling");
+		list.add("yaoxia");
+		list.add("caicia");
+		list.add("erya");
+		list.add("服务端口号："+servicePort);
+		return list;
+	}
+	
+	@RequestMapping("/getUser")
+	@ResponseBody
+	public JSONObject  getUser(){
+		count++;
+		log.info(count+"");
+		try {
+			Thread.sleep(3000);
+			Thread.currentThread().getName();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		JSONObject result = new JSONObject();
+		result.put("name", "chenling");
+		result.put("sex", "man");
+		result.put("height", "167cm");
+		result.put("weight", "55kg");
+		result.put("profession", "programmer");
+		result.put("wife", "yaoxia");
+		result.put("服务端口号",servicePort);
+		return result;
+	}
+}

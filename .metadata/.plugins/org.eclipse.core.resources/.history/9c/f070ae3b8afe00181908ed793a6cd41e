@@ -1,0 +1,21 @@
+package com.cl.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class TestController {
+	
+	
+	@Value("${userName}")
+	private String userName;
+	
+	
+	public String getUserName() {
+		
+		
+		
+	}
+	
+	
+}

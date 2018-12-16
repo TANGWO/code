@@ -1,0 +1,15 @@
+package com.cl.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cl.service.MemberFeignService;
+
+@RestController
+public class FeignController {
+
+	private MemberFeignService memberFeignService;
+	
+	
+	
+	
+}

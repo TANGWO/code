@@ -1,0 +1,30 @@
+package com.cl.hystrix;
+
+import org.json.JSONObject;
+
+import com.netflix.hystrix.HystrixCommand;
+import com.netflix.hystrix.HystrixCommandGroupKey;
+import com.netflix.hystrix.HystrixCommandKey;
+import com.netflix.hystrix.HystrixThreadPoolKey;
+
+public class OrderHystrixCommand  extends HystrixCommand<JSONObject>{
+
+	public OrderHystrixCommand(Setter setter) {
+		super(setter);
+		
+	}
+
+	public static  Setter setter() {
+		//服务分组
+		HystrixCommandGroupKey groupKey = HystrixCommandGroupKey.Factory.asKey("orders");
+		//服务标识
+		HystrixCommandKey commandkey = HystrixCommandKey.Factory.asKey("order");
+		//线程池名称
+		HystrixThreadPoolKey.Factory.asKey("order-pool");
+		
+		
+	}
+
+	
+	
+}

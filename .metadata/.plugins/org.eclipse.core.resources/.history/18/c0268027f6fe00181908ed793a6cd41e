@@ -1,0 +1,17 @@
+package com.cl.fallback;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.cl.service.MemberFeignService;
+
+public class OrderFallBack implements MemberFeignService {
+
+	@Override
+	public List<String> getUserToMember() {
+		List<String> list = new ArrayList<String>();
+		list.add("****************服务发生异常******************");
+		return null;
+	}
+
+}

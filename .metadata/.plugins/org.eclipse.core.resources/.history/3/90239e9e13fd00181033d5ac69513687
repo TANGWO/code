@@ -1,0 +1,8 @@
+package com.cl;
+
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@EnableEurekaClient
+public class EurekaMumberApp {
+
+}

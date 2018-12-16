@@ -1,0 +1,8 @@
+package com.cl.service;
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+
+@FeignClient(value="service-member")
+public class MemberFeignService {
+
+}

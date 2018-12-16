@@ -1,0 +1,21 @@
+package com.cl.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MumberController {
+	
+	
+	public List<String>  getUserList(){
+		
+		ArrayList<String> list = new ArrayList<>();
+		list.add("chenling");
+		list.add("yaoxia");
+		list.add("chenling");
+		
+		return null;
+	}
+}

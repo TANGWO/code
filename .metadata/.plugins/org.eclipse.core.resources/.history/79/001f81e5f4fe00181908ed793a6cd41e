@@ -1,0 +1,21 @@
+package com.cl.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.client.RestTemplate;
+
+@SuppressWarnings("unchecked")
+public class FeignOrderService {
+	
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	
+	public List<String> getUserToMember(){
+		
+		 return restTemplate.getForObject("", List.class);
+	}
+
+}

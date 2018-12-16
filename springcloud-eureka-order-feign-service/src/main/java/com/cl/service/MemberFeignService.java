@@ -1,0 +1,21 @@
+package com.cl.service;
+
+import java.util.List;
+
+import org.json.JSONObject;
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cl.fallback.OrderFallBack;
+
+@FeignClient(value="service-member",fallback=OrderFallBack.class)
+public interface MemberFeignService {
+	
+	@RequestMapping("/getUserList")
+	public List<String> getUserToMember();
+	
+	
+	@RequestMapping("/getUser")
+	public JSONObject getUserMapToMember();
+
+}

@@ -1,0 +1,15 @@
+package com.cl.api.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MemberController {
+	
+	
+	public String getMember() {
+		
+		return "this is  member service";
+	}
+	
+	
+}

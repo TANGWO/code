@@ -1,0 +1,28 @@
+##视图解析器
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+      
+##静态资源
+  resources:
+   static-locations: classpath:/static/
+   
+##配置数据源
+  datasource:
+      url: jdbc:oracle:thin:@localhost:1521:orcl
+      username: hr70
+      password: hr70
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      
+##配置服务器
+server:
+  port: 8085
+  
+##配置mybatis
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    
