@@ -35,7 +35,7 @@
 				        about_us ,
 				        mobile ,
 				        web_site)
-                  value(
+                  values(
                        #{name},
                        #{address},
                        #{phone},

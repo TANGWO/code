@@ -36,7 +36,7 @@
 						  blog_id,
 						  type,
 						  user_id)
-                  value(
+                  values(
                        #{content},
                        #{houseId},
                        #{createTime},
