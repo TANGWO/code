@@ -52,7 +52,7 @@ public class RecommendServiceImpl implements RecommendService {
 	      List<Long> ids = idSet.stream().map(Long::parseLong).collect(Collectors.toList());
 	      return ids;
 	    } catch (Exception e) {
-	      logger.error(e.getMessage(), e);//有同学反应在未安装redis时会报500,在这里做下兼容,
+	      logger.error(e.getMessage(), e);
 	      return Lists.newArrayList();
 	    }
 

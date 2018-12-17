@@ -61,4 +61,12 @@ public class FileService {
 		Files.write(file.getBytes(),newFile);
 		return newFile;
 	}
+	
+	
+	public static String getResourcePath(){
+		  File file = new File(".");
+		  String absolutePath = file.getAbsolutePath();
+		  return absolutePath;
+	}
+
 }
