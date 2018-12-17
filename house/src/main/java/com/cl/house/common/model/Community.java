@@ -6,9 +6,8 @@ import lombok.Data;
 public class Community {
 	
 	private Integer id;
-	private String city_code;
+	private String cityCode;
+	private String cityName;
 	private String name;
-	private String city_name;
-	
 	
 }
