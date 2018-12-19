@@ -1,5 +1,6 @@
 package com.cl.house.service.impl;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
@@ -47,7 +48,13 @@ public class MailService {
 					@Override
 					public void onRemoval(RemovalNotification<String, String> notification) {
 						//优化，删除前先判断是否激活
-						userMapper.delete(notification.getValue());
+						User queryUser = new User();
+						queryUser.setEmail(notification.getValue());
+						queryUser.setEnable(1);
+						List<User> list = userMapper.selectUserByQuery(queryUser);
+						if(list.isEmpty()) {
+							userMapper.delete(notification.getValue());
+						}
 					}
 				}).build();
 

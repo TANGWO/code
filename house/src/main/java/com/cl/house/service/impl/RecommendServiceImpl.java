@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cl.house.common.model.House;
 import com.cl.house.common.page.PageParams;
+import com.cl.house.filter.LogFilter;
 import com.cl.house.service.HouseService;
 import com.cl.house.service.RecommendService;
 import com.google.common.collect.Lists;
@@ -27,8 +28,7 @@ public class RecommendServiceImpl implements RecommendService {
 	
 	private static final String HOT_HOUSE_KEY = "hot_house";
 
-	  private static final Logger logger = LoggerFactory.getLogger(RecommendService.class);
-
+	private static final Logger logger = LogManager.getLogger(LogFilter.class);
 	  @Autowired
 	  private HouseService houseService;
 
@@ -74,6 +74,8 @@ public class RecommendServiceImpl implements RecommendService {
 	    return houseSort.sortedCopy(houses);
 	  }
 
+	  
+	  
 	  public List<House> getLastest() {
 	    House query = new House();
 	    query.setSort("create_time");

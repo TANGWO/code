@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
@@ -62,10 +63,22 @@ public class House {
 	  
 	  private String  sort = "time_desc";//price_desc,price_asc,time_desc
 	  
+	  
+	  public void setType(Integer type) {
+		    this.type = type;
+		    if (Objects.equal(type, 1) && Objects.equal(type, 0)) {
+		      this.typeStr = "For Sale";
+		    }else {
+		      this.typeStr = "For Rent";
+		    }
+		}
+	  
+	  
 	  public void setProperties(String properties) {
 		    this.properties = properties;
 		    this.featureList = Splitter.on(",").splitToList(properties);
 		  }
+	  
 	  
 	  public void setFloorPlan(String floorPlan) {
 	    this.floorPlan = floorPlan;
@@ -73,11 +86,13 @@ public class House {
 	      this.floorPlanList = Splitter.on(",").splitToList(floorPlan);
 	    }
 	  }
+	  
   
 	  public void setFeatureList(List<String> featureList) {
 		    this.featureList = featureList;
 		    this.properties = Joiner.on(",").join(featureList);
 	   }
+	  
 	  
 	  public void setImages(String images) {
 		    this.images = images;
@@ -89,5 +104,10 @@ public class House {
 		       }
 		    }
 	 }
+	  
+    public void setRating(Double rating) {
+	    this.rating = rating;
+	    this.roundRating = (int) Math.round(rating);
+	  }
 	  
 }

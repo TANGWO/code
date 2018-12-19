@@ -1,5 +1,5 @@
 server:
-  port: 8088
+  port: 8080
   tomcat: 
      uri-encoding: UTF-8
   
@@ -64,9 +64,11 @@ spring:
              enable: true
              required: true
              
-       
-              
-          
+      redis:
+        host: localhost
+        max-active: 3
+        port: 6379
+        timeout: 6000
         
 #定义文件路径
 file.path: D:\nginxFile\opt\images
@@ -78,6 +80,9 @@ domain.name: 127.0.0.1:${server.port}
 user.service.name: user
 house.service.name: house
 comment.service.name: comment
+
+#logging:
+#     config: classpath:log4j2.xml
 
 
  

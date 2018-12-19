@@ -11,7 +11,7 @@ public interface UserService {
 	List<User> selectUser();
 	
 	@Transactional(rollbackFor=Exception.class)
-	boolean addUser(User user);
+	boolean addUser(User user) throws Exception;
 
 	boolean enable(String key);
 

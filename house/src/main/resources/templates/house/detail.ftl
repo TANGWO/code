@@ -58,7 +58,7 @@
                                         <dt>地址</dt>
                                             <dd>${house.address}</dd>
                                         <dt>价格</dt>
-                                            <dd><span class="tag price">${house.priceStr}</span></dd>
+                                            <dd><span class="tag price"></span></dd>
                                         <dt>类型:</dt>
                                             <dd>销售</dd>
                                         <dt>面积:</dt>

@@ -15,7 +15,7 @@ import com.cl.house.common.page.PageParams;
 public interface HouseMapper {
     public List<House>  selectPageHouses(@Param("house")House house,@Param("pageParams")PageParams pageParams);
     
-    public Long selectPageCount(@Param("house") House query);
+    public Long selectPageCount(@Param("house") House house);
 	
 	public int insert(User account);
 
@@ -23,9 +23,9 @@ public interface HouseMapper {
 
 	public int insert(House house);
 
-	public HouseUser selectHouseUser(@Param("userId")Long userId,@Param("id") Long houseId,@Param("type") Integer integer);
+	public HouseUser selectHouseUser(@Param("userId")Long userId,@Param("id") Long houseId,@Param("type") Integer type);
 	
-	public HouseUser selectSaleHouseUser(@Param("id") Long houseId);
+	public HouseUser selectSaleHouseUser(@Param("id") Long id);
 
 	public int insertHouseUser(HouseUser houseUser);
 
@@ -35,7 +35,7 @@ public interface HouseMapper {
 	
 	public  int downHouse(Long id);
 
-	public int deleteHouseUser(@Param("id")Long id,@Param("userId") Long userId,@Param("type") Integer value);
+	public int deleteHouseUser(@Param("id")Long id,@Param("userId") Long userId,@Param("type") Integer type);
 	
 	
 	

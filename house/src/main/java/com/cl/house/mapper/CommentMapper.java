@@ -17,9 +17,9 @@ import com.cl.house.common.page.PageParams;
 public interface CommentMapper {
 	
 
-	  List<House> selectHouse(@Param("house") House query, @Param("pageParams")  PageParams pageParams);
+	  List<House> selectHouse(@Param("house") House house, @Param("pageParams")  PageParams pageParams);
 
-	  Long selectHouseCount(@Param("house")House query);
+	  Long selectHouseCount(@Param("house")House house);
 
 	  List<Community> selectCommunity(Community community);
 

@@ -30,7 +30,7 @@ import com.google.common.collect.Lists;
 @Service
 public class HouseServiceImpl implements HouseService  {
 	
-	@Value("file.prefix")
+	@Value("${file.prefix}")
 	private String imgPrefix;
 	
 	@Resource

@@ -12,7 +12,7 @@
 		  user_id
    </sql>
    
-   <select id="selectComments" resultType="com.cl.house.common.model.Community">
+   <select id="selectComments" resultType="com.cl.house.common.model.Comment">
      select <include refid="commentField"/>
      from   comment
      where  type =1 and house_id = #{houseId}
@@ -20,7 +20,7 @@
      limit  #{size}
    </select>
   
-   <select id="selectBlogComments" resultType="com.cl.house.common.model.Community">
+   <select id="selectBlogComments" resultType="com.cl.house.common.model.Comment">
      select <include refid="commentField"/>
      from   comment
      where  type =2 and blog_id = #{blogId}

@@ -2,6 +2,8 @@
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.cl.house.common.model.Agency;
 import com.cl.house.common.model.User;
 import com.cl.house.common.page.PageParams;
@@ -14,10 +16,10 @@ public interface AgencyMapper {
 
 	/**
 	 * @param user
-	 * @param build
+	 * @param pageParams
 	 * @return
 	 */
-	List<User> selectAgent(User user, PageParams build);
+	List<User> selectAgent(User user, PageParams pageParams);
 
 	/**
 	 * @param agency
@@ -29,7 +31,7 @@ public interface AgencyMapper {
 	 * @param user
 	 * @return
 	 */
-	Long selectAgentCount(User user);
+	Long selectAgentCount(@Param("user")User user);
 
 	/**
 	 * @param agency

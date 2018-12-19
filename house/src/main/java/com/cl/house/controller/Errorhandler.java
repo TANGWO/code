@@ -2,10 +2,12 @@
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.cl.house.filter.LogFilter;
 
 /**
  * @author chenling
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class Errorhandler {
 	
-	private static final Logger logger = LoggerFactory.getLogger(Errorhandler.class);
+	private static final Logger logger = LogManager.getLogger(LogFilter.class);
 
 	@ExceptionHandler(value={Exception.class,RuntimeException.class})
 	public String error500(HttpServletRequest request,Exception e){

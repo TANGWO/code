@@ -24,11 +24,11 @@ public class BlogServiceImpl  implements BlogService{
 	  @Autowired
 	  private BlogMapper blogMapper;
 
-	  public PageData<Blog> queryBlog(Blog query, PageParams params) {
-	    List<Blog> blogs =  blogMapper.selectBlog(query,params);
+	  public PageData<Blog> queryBlog(Blog blog, PageParams pageParams) {
+	    List<Blog> blogs =  blogMapper.selectBlog(blog,pageParams);
 	    populate(blogs);
-	    Long  count =  blogMapper.selectBlogCount(query);
-	    return PageData.<Blog>buildPage(blogs, count, params.getPageSize(), params.getPageNum());
+	    Long  count =  blogMapper.selectBlogCount(blog);
+	    return PageData.<Blog>buildPage(blogs, count, pageParams.getPageSize(), pageParams.getPageNum());
 	  }
 
 	  private void populate(List<Blog> blogs) {
@@ -38,8 +38,10 @@ public class BlogServiceImpl  implements BlogService{
 	        item.setDigest(stripped.substring(0, Math.min(stripped.length(),40)));
 	        String tags = item.getTags();
 	        item.getTagList().addAll(Lists.newArrayList(Splitter.on(",").split(tags)));
+	        System.out.println(item);
 	      });
 	    }
+	    System.out.println(blogs);
 	  }
 
 	  public Blog queryOneBlog(int id) {

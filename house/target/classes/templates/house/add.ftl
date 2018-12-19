@@ -22,7 +22,7 @@
 
         <div class="container">
             <header><h1>添加你的房产</h1></header>
-            <form role="form" id="form-submit" class="form-submit" method="post" enctype="multipart/form-data"  action="/house/add">
+            <form role="form" id="form-submit" class="form-submit" method="POST" enctype="multipart/form-data"  action="/house/add">
                 <div class="row">
                     <div class="block">
                         <div class="col-md-9 col-sm-9">

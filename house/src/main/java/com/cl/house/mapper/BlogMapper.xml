@@ -23,12 +23,12 @@
        </if>
     </select>
     
-    <select id="selectBlogCount" resultType="com.cl.house.common.model.Blog">
+    <select id="selectBlogCount" resultType="Long">
        select count(id)
-       from   blog a
+       from   BLOG  a
        <where>
-         <if test="id != null   and id != 0">
-             and id   = #{id}
+         <if test="blog.id != null   and blog.id != 0">
+             and a.id   = #{blog.id}
          </if>
       </where>
        order by a.create_time desc

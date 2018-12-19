@@ -32,23 +32,22 @@
 	</dependencyManagement> -->
   
    <dependencies>
-	    <dependency>
-	      <groupId>junit</groupId>
-	      <artifactId>junit</artifactId>
-	      <scope>test</scope>
-	    </dependency>
-	    
+   		
+	    <dependency>  
+		    <groupId>org.springframework.boot</groupId>  
+		    <artifactId>spring-boot-starter</artifactId>  
+		</dependency> 
+		 
+		<dependency>  
+		    <groupId>org.springframework.boot</groupId>  
+		    <artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>  
 	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -57,10 +56,11 @@
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
+				 </exclusion>
 			</exclusions>
 		</dependency>
 		
+	    	
 		<!--  用于将替换tomcat内嵌容器替换为jetty-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -72,7 +72,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		 </dependency>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -85,7 +91,18 @@
 		  <groupId>org.mybatis.spring.boot</groupId>
 		  <artifactId>mybatis-spring-boot-starter</artifactId>
 		  <version>1.2.0</version>
-	    </dependency>
+		  <exclusions>
+		  	<exclusion>
+		  		<groupId>org.slf4j</groupId>
+		  		<artifactId>slf4j-api</artifactId>
+		  	</exclusion>
+		  </exclusions>
+		</dependency>
+	    
+	    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
 	    
 	    <dependency>
 			<groupId>mysql</groupId>
@@ -116,11 +133,6 @@
 		    <groupId>com.google.guava</groupId>
 		    <artifactId>guava</artifactId>
 		    <version>27.0.1-jre</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
@@ -165,7 +177,24 @@
 		    <groupId>redis.clients</groupId>
 		    <artifactId>jedis</artifactId>
 		</dependency>
-				
+		 <!-- 热部署工具 -->
+	   	 <!-- <dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-devtools</artifactId>
+				<optional>true</optional>
+				<scope>true</scope>
+	   </dependency>  -->		
+		
+		<dependency>
+	      <groupId>junit</groupId>
+	      <artifactId>junit</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
 		
   </dependencies>
   

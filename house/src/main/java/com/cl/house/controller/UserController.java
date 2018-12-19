@@ -39,12 +39,17 @@ public class UserController {
 		}
 		//用户验证
 		ResultMsg msg = UserHelper.validate(user);
-		if(msg.isSuccess() && userService.addUser(user)) {
-			modelMap.put("email", user.getEmail());
-			return "/user/accounts/registerSubmit";
-		}else {
-			
-			return "redirect:/accounts/register?"+msg.asUrlParams();
+		try {
+			if(msg.isSuccess() && userService.addUser(user)) {
+				modelMap.put("email", user.getEmail());
+				return "/user/accounts/registerSubmit";
+			}else {
+				return "redirect:/accounts/register?"+msg.asUrlParams();
+			}
+		} catch (Exception e) {
+			 e.printStackTrace();
+			 modelMap.put("errorMsg", "注册错误，邮件已经被注册！");
+			 return "redirect:/accounts/register?"+ResultMsg.errorMsg("注册错误，邮件已经被注册！").asUrlParams();
 		}
 		
 	}
@@ -84,7 +89,7 @@ public class UserController {
 			HttpSession session = req.getSession(true);
 			session.setAttribute(CommonConstants.USER_ATTRIBUTE, user);
 			session.setAttribute(CommonConstants.PLAIN_USER_ATTRIBUTE, user);
-			return StringUtils.isBlank(target)? "redirect:"+target :"redirect:/index";
+			return StringUtils.isBlank(target)? "redirect:/index" :"redirect:"+target ;
 		}
 	}
 	
