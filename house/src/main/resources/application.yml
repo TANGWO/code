@@ -1,0 +1,90 @@
+server:
+  port: 8080
+  tomcat: 
+     uri-encoding: UTF-8
+  
+##spring:##  datasource: ##    url: jdbc:mysql://localhost:3306/house?characterEncoding=UTF-8&useSSL=false
+##    driver-class-name: com.mysql.jdbc.Driver
+##    username: chenling
+##   password: chenling
+    
+    
+mybatis:  config-location: classpath:/mybatis/mybatis-config.xml
+  
+##数据库连接池
+
+spring:
+      sleuth:
+        sampler:
+            percentage: 1
+      zipkin:
+          baseUrl: http://localhost:9411
+      http: 
+          encoding:     
+              encoding: true
+              charset: UTF-8
+              enabled: true
+      ##配置freemarker模板
+      freemarker:
+        charset: UTF-8
+        content-type: text/html; charset=utf-8  
+        expose-request-attributes: true
+        expose-session-attributes: true
+        expose-spring-macro-helpers: true
+        suffix: .ftl
+        settings:            datetime_format: yyyy-MM-dd HH:mm:ss
+            default_encoding: UTF-8
+            auto_import: common/common.ftl as common                                                   
+      druid:
+        driverClassName: com.mysql.jdbc.Driver
+        username: chenling
+        password: chenling
+        url: jdbc:mysql://localhost:3306/house?characterEncoding=UTF-8&useSSL=false
+        #最大连接数
+        maxActive: 30
+        #最小连接数
+        minIdle: 5
+        #最大等待时间
+        maxWait: 10000
+        #解决mysql 8小时问题
+        validationQuery: SELECT 'X'
+        #空闲连接检查时间
+        timeBetweenEvictionRunsMillis: 60000
+        #空闲连接最小空闲时间
+        minEvictableIdleTimeMillis: 300000
+        
+      ##配置邮件发送地址 
+      mail:        host: smtp.163.com
+        username: chenlingyx520@163.com
+        password: 802139chenling
+        port: 25
+        smtp: 
+          auth: true
+          starttls: 
+             enable: true
+             required: true
+             
+      redis:
+        host: localhost
+        max-active: 3
+        port: 6379
+        timeout: 6000
+        
+#定义文件路径
+file.path: D:\nginxFile\opt\images
+file.prefix: http://127.0.0.1:8088/images
+
+domain.name: 127.0.0.1:${server.port}
+
+
+user.service.name: user
+house.service.name: house
+comment.service.name: comment
+
+#logging:
+#     config: classpath:log4j2.xml
+
+
+ 
+    
+        
